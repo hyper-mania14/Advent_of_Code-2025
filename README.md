@@ -11,16 +11,21 @@ The requirement was to find the maximum "joltage" i.e. from a set of lines of ba
 
 *Logic* : Keep a track of the two max values while going through the line **once** and note their indexes as well. Arrange according to indexes and join. Repeat for the other lines and keep adding the value to the current joltage.
 
+*Ans* : 17179
 
 ### DAY 5 (P1) :
 The requirement was to find out whether a list of 1000 given ingredients (each with independent ingredient IDs) are fresh or stale based on whether they lie in a given set of 186 ingredient ID ranges. 
 
 *Logic* : I used separate memh files for the items, start values of each range and end values of each range to avoid creating registers for such large data. The temporary registers store the current range based on range index and current item, compare and if it lies in the range, a count register is incremented and the range index is set to 0. If not, range index is incremented till the input is exhausted. If none of the ranges are met, then item is incremented and range is reset, till all items are checked.
 
+*Ans* : 865
+
 ### DAY 5 (P2) :
 The requirement was to find out the number of ingredients that lie in all the ranges combined i.e. in the union of all the given ranges.
 
 *Logic* : Used a sorted version of the input ranges to find the union comfortably. The sorting was done in **python**. The **verilog** code compared the values of the start and end of a range with the next one to see if they overlapped. If say the next end value is larger than the previous and the next start value is smaller than the previous, then current start and end value registers are updated with the next values, else not. The number of ingredients are (current end - current start + 1). For non overlapping ranges, the number of ingredients are added as is.
+
+*Ans* : 352556672963116
 
 ---
 
